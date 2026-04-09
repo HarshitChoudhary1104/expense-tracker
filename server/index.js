@@ -33,20 +33,22 @@ const db = createClient({
 
 // Create tables on startup
 async function initDB() {
-  await db.batch([
-    `CREATE TABLE IF NOT EXISTS expenses (
+  await db.execute(`
+    CREATE TABLE IF NOT EXISTS expenses (
       id          INTEGER PRIMARY KEY AUTOINCREMENT,
       amount      REAL    NOT NULL CHECK(amount > 0),
       category    TEXT    NOT NULL,
       date        TEXT    NOT NULL,
       note        TEXT    DEFAULT '',
       created_at  TEXT    DEFAULT (datetime('now'))
-    )`,
-    `CREATE TABLE IF NOT EXISTS budgets (
+    )
+  `);
+  await db.execute(`
+    CREATE TABLE IF NOT EXISTS budgets (
       category    TEXT PRIMARY KEY,
       monthly_limit REAL NOT NULL
-    )`
-  ]);
+    )
+  `);
   console.log('✅ Database tables initialized');
 }
 
