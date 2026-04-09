@@ -499,7 +499,7 @@ export default function App() {
             <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-2.5 rounded-xl text-white shadow-lg shadow-indigo-500/20">
               <LayoutDashboard size={22} className="fill-white/20" />
             </div>
-            <h1 className="text-xl font-extrabold tracking-tight text-white">Expense<span className="text-gradient">IQ</span></h1>
+            <h1 className="text-xl font-extrabold tracking-tight text-white">S<span className="text-gradient">ET</span></h1>
           </motion.div>
           <motion.div initial={{opacity:0, x:20}} animate={{opacity:1,x:0}} className="flex items-center gap-2 glass-card px-5 py-2.5 rounded-full hidden sm:flex border-white/10 shadow-sm">
             <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Global Balance</span>
