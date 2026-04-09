@@ -2,7 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { createClient } = require('@libsql/client');
+const { createClient } = require('@libsql/client/http');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -53,8 +53,8 @@ async function initDB() {
 }
 
 initDB().catch(err => {
-  console.error('❌ Failed to initialize database:', err.message);
-  process.exit(1);
+  console.error('⚠️ DB init warning:', err.message);
+  console.log('Will retry on first request...');
 });
 
 // ── Constants ───────────────────────────────────────────────────
